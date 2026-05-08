@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #08080a;
+  --color-bg-soft: #0e0e11;
+  --color-fg: #f5f5f7;
+  --color-muted: #6b7280;
+  --color-border: #1c1c20;
+  --color-border-soft: #131317;
+  --color-accent: #6366f1;
+  --color-accent-soft: #4338ca;
+  --color-success: #22c55e;
+  --color-warn: #eab308;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "ss02", "cv11";
+}
+
+* { border-color: var(--color-border); }
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50%      { transform: translate3d(0,-12px,0); }
+}
+
+@keyframes scan {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(100%); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.fade-up-delay-1 { animation-delay: 0.05s; }
+.fade-up-delay-2 { animation-delay: 0.10s; }
+.fade-up-delay-3 { animation-delay: 0.20s; }
+.fade-up-delay-4 { animation-delay: 0.30s; }
+
+.gradient-mesh {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(99,102,241,0.18), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(34,197,94,0.10), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(59,130,246,0.10), transparent 50%);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+}
+
+.code-shadow {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06),
+    0 20px 60px -20px rgba(99,102,241,0.35),
+    0 8px 30px -10px rgba(0,0,0,0.6);
+}
