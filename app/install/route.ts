@@ -12,7 +12,7 @@
 
 const UPSTREAM =
   process.env.ORQESTRA_INSTALL_SCRIPT_URL ??
-  "https://raw.githubusercontent.com/manavvgarg/Orqestra/main/scripts/install.sh";
+  "https://www.orqestra.xyz/public/install.sh";
 
 export const revalidate = 300; // 5-minute edge cache; install scripts shouldn't churn faster
 export const runtime = "edge";
