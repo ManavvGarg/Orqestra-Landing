@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Orqestra installer bootstrap.
 # Usage:  curl -fsSL https://orqestra.xyz/install | bash
-#         curl -fsSL https://orqestra.xyz/install | bash -s -- --version v0.1.0
+#         curl -fsSL https://orqestra.xyz/install | bash -s -- --version v1.0.0
 set -euo pipefail
 
 REPO="${ORQESTRA_INSTALLER_REPO:-manavvgarg/Orqestra}"

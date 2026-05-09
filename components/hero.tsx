@@ -14,7 +14,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-success)] opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--color-success)]" />
           </span>
-          <span>v0.1 — open source</span>
+          <span>v1.0.0 — open source</span>
           <Link
             href="https://github.com/manavvgarg/Orqestra"
             className="ml-1 inline-flex items-center gap-1 text-[var(--color-fg)] hover:underline"
