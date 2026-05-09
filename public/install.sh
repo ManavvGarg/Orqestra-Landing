@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Orqestra installer bootstrap.
-# Usage:  curl -fsSL https://orqestra.xyz/install | bash
-#         curl -fsSL https://orqestra.xyz/install | bash -s -- --version v1.0.0
+# Usage:  curl -fsSL https://orqestra.xyz/install.sh | bash
+#         curl -fsSL https://orqestra.xyz/install.sh | bash -s -- --version v0.1.0
 set -euo pipefail
 
 REPO="${ORQESTRA_INSTALLER_REPO:-manavvgarg/Orqestra}"
@@ -65,4 +65,15 @@ fi
 chmod +x "$BIN"
 echo "  Launching installer…"
 echo
-exec "$BIN" "$@"
+
+# When invoked via `curl … | bash`, stdin is the pipe, not a terminal.
+# Clack prompts need a TTY — without one, the first prompt sees EOF and
+# the installer exits silently. Reattach /dev/tty when available.
+if [ -r /dev/tty ]; then
+  exec "$BIN" "$@" < /dev/tty
+else
+  echo "Error: no controlling terminal available." >&2
+  echo "Run the installer in an interactive shell, e.g.:" >&2
+  echo "  bash <(curl -fsSL https://orqestra.xyz/install.sh)" >&2
+  exit 1
+fi
