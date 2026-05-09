@@ -63,7 +63,7 @@ const features = [
     icon: Terminal,
     title: "One command, one binary",
     description:
-      "30 MB self-contained installer. No npm, no Python, no apt-get pre-reqs. Detects your OS, can install Docker + NVIDIA toolkit if you let it.",
+      "self-contained installer. No npm, no Python, no apt-get pre-reqs. Detects your OS, can install Docker + NVIDIA toolkit if you let it.",
   },
 ];
 

@@ -49,7 +49,7 @@ export function Hero() {
           <span className="h-1 w-1 rounded-full bg-[var(--color-border)]" />
           <span>x64 + arm64</span>
           <span className="h-1 w-1 rounded-full bg-[var(--color-border)]" />
-          <span>~30 MB single binary</span>
+          <span>Less than ~100MB Single binary</span>
           <span className="h-1 w-1 rounded-full bg-[var(--color-border)]" />
           <span>Pre-flight checks before any change</span>
         </div>

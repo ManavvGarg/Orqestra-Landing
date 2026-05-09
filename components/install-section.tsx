@@ -43,7 +43,7 @@ export function InstallSection() {
       <div className="mb-12">
         <InstallCommand size="lg" />
         <p className="mt-3 text-xs text-[var(--color-muted)]">
-          Linux + macOS. ~30 MB binary. No prerequisites beyond Docker (which the installer
+          Linux + macOS. Less than ~100MB single binary. No prerequisites beyond Docker (which the installer
           can fetch for you).
         </p>
       </div>
