@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Check, Copy, Terminal } from "lucide-react";
 
-const CMD = "curl -fsSL https://orqestra.xyz/install | bash";
+const CMD = "curl -fsSL https://orqestra.xyz/install.sh | bash";
 
 export function InstallCommand({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const [copied, setCopied] = useState(false);
