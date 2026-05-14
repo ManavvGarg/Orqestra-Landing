@@ -1,17 +1,23 @@
+import { Nav } from "../components/nav";
 import { Hero } from "../components/hero";
-import { Features } from "../components/features";
-import { InstallSection } from "../components/install-section";
+import { Pillars } from "../components/pillars";
+import { AgentHive } from "../components/agenthive";
+import { HowItWorks } from "../components/how-it-works";
 import { Architecture } from "../components/architecture";
+import { CTA } from "../components/cta";
 import { Footer } from "../components/footer";
 
 export default function Page() {
   return (
     <>
-      <Hero />
-      <main className="mx-auto max-w-5xl px-6">
-        <Features />
-        <InstallSection />
+      <Nav />
+      <main>
+        <Hero />
+        <Pillars />
+        <AgentHive />
+        <HowItWorks />
         <Architecture />
+        <CTA />
       </main>
       <Footer />
     </>

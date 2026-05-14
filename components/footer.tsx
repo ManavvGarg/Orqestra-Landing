@@ -1,55 +1,58 @@
 import Link from "next/link";
 import { Github } from "lucide-react";
+import { Wordmark } from "./wordmark";
+import { GITHUB_URL, DOCS_URL } from "./site";
+
+const links = [
+  { href: "#pillars", label: "Platform" },
+  { href: "#agenthive", label: "AgentHive" },
+  { href: "#how", label: "How it works" },
+  { href: "#architecture", label: "Architecture" },
+  { href: DOCS_URL, label: "Docs", external: true },
+  { href: `${GITHUB_URL}/issues`, label: "Issues", external: true },
+];
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--color-border)] py-12">
-      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-6 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <div className="flex items-center gap-2 text-sm font-semibold">
-            <span className="inline-block h-3 w-3 rounded-sm bg-gradient-to-br from-indigo-500 to-cyan-400" />
-            Orqestra
+    <footer className="border-t border-[var(--color-border)]">
+      <div className="mx-auto max-w-6xl px-6 py-14">
+        <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
+          <div className="max-w-xs">
+            <Wordmark />
+            <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-muted)]">
+              Orqestra — your hardware, orchestrated.
+            </p>
           </div>
-          <p className="mt-1 text-xs text-[var(--color-muted)]">
-            Self-host Jupyter + LLMs. Open source, MIT-licensed.
-          </p>
+
+          <nav className="flex flex-wrap gap-x-8 gap-y-2.5">
+            {links.map((l) => (
+              <Link
+                key={l.label}
+                href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noreferrer" : undefined}
+                className="link-underline text-[13px] text-[var(--color-muted)] transition-colors hover:text-[var(--color-fg)]"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
         </div>
 
-        <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-[var(--color-muted)]">
+        <div className="mt-12 flex flex-col gap-4 border-t border-[var(--color-border-soft)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-[11px] text-[var(--color-faint)]">
+            Open-source · MIT licensed · Self-hosted
+          </p>
           <Link
-            href="https://github.com/manavvgarg/Orqestra"
+            href={GITHUB_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 hover:text-[var(--color-fg)]"
+            className="inline-flex w-fit items-center gap-1.5 text-[12px] text-[var(--color-muted)] transition-colors hover:text-[var(--color-fg)]"
           >
-            <Github className="h-4 w-4" />
-            GitHub
+            <Github className="h-3.5 w-3.5" />
+            github.com/manavvgarg/Orqestra
           </Link>
-          <Link
-            href="https://github.com/manavvgarg/Orqestra/blob/main/docs/INSTALL.md"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-[var(--color-fg)]"
-          >
-            Install guide
-          </Link>
-          <Link
-            href="https://github.com/manavvgarg/Orqestra/blob/main/docs/DEVELOPMENT.md"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-[var(--color-fg)]"
-          >
-            Dev guide
-          </Link>
-          <Link
-            href="https://github.com/manavvgarg/Orqestra/issues"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-[var(--color-fg)]"
-          >
-            Issues
-          </Link>
-        </nav>
+        </div>
       </div>
     </footer>
   );
